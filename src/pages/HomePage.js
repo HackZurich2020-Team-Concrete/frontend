@@ -2,16 +2,16 @@ import React from "react";
 import Logo from "../components/Logo";
 import "./HomePage.css";
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="home">
+      <header className="Home-header">
         <Logo />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
-          className="App-link"
+          className="Home-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -22,3 +22,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;
