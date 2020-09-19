@@ -1,0 +1,15 @@
+version: "3"
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - concrete-net
+    ports:
+      - 8080:80
+
+networks:
+  concrete-net:
+    external: true

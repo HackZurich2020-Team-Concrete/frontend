@@ -5,14 +5,14 @@ import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import { ThemeProvider } from '@material-ui/core';
 import { createTheme } from '../theme';
-import Layout from '../components/Layout';
+import { DataProvider } from '../context/dataContext';
 
 const theme = createTheme();
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
+      <DataProvider>
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -20,7 +20,7 @@ function App() {
             <Route path="*" component={NotFoundPage} />
           </Switch>
         </BrowserRouter>
-      </Layout>
+      </DataProvider>
     </ThemeProvider>
   );
 }

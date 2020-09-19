@@ -32,19 +32,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ComplexGrid({item, user}) {
+export default function ComplexGrid({ item, user, onClick }) {
   const classes = useStyles();
 
   return (
-      <div className={classes.root}>
-      <Paper className={classes.paper}>
+    <div className={classes.root}>
+      <Paper className={classes.paper} variant="outlined" square onClick={onClick}>
 
         <Grid container spacing={3}>
           <Grid item>
             <Grid item>
-            <ButtonBase className={classes.image}>
-            <img alt="icon" src={asphalt_icon} width={30} />
-            </ButtonBase>
+              <ButtonBase className={classes.image}>
+                <img alt="icon" src={asphalt_icon} width={30} />
+              </ButtonBase>
             </Grid>
             <Grid item>
               <Typography variant="subtitle1">$19.00</Typography>
@@ -53,8 +53,8 @@ export default function ComplexGrid({item, user}) {
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-              <Typography variant="body2" color="textSecondary">
-                Location
+                <Typography variant="body2" color="textSecondary">
+                  Location
               </Typography>
                 <Typography gutterBottom variant="subtitle1">
                   {item.locationN}N, {item.locationE}E
@@ -88,23 +88,23 @@ export default function ComplexGrid({item, user}) {
           </Grid>
           <Grid item>
 
-          { (item.userId === user.userId) && (
-            <React.Fragment>
+            {(item.userId === user.userId) && (
+              <React.Fragment>
 
-            <Grid item>
-            <Button size="small">Edit</Button>
-            </Grid>
+                <Grid item>
+                  <Button size="small">Edit</Button>
+                </Grid>
 
-            <Grid item>
-            <Button size="small">Delete</Button>
-              </Grid>
+                <Grid item>
+                  <Button size="small">Delete</Button>
+                </Grid>
               </React.Fragment>
             )
 
             }
 
 
-</Grid>
+          </Grid>
         </Grid>
       </Paper>
     </div>
@@ -115,6 +115,9 @@ export default function ComplexGrid({item, user}) {
 ComplexGrid.propTypes = {
   item: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
+  onClick: PropTypes.func,
 }
-//
-// export default ItemView;
+
+ComplexGrid.defaultProps = {
+  onClick: () => {},
+}
