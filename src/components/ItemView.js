@@ -96,7 +96,7 @@ export default function ComplexGrid({item, user}) {
             </Grid>
 
             <Grid item>
-            <Button size="small">Remove</Button>
+            <Button size="small">Delete</Button>
               </Grid>
               </React.Fragment>
             )
