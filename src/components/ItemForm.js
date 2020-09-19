@@ -26,7 +26,9 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
+// import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import MapView from './MapView'
+import Map from "./Map"
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -142,19 +144,19 @@ export default function ItemForm({item, user}) {
                 endDate={endDate}
                 minDate={startDate}
               />
-
-
-
-
-
-};
-
+              <Map
+    google={"AIzaSyDXQ41_WmK-K4oz3nzFNNM6KI_Jc_HIUTg"}
+    center={{lat: 18.5204, lng: 73.8567}}
+    height='300px'
+    zoom={15}
+   />
 
 
             </div>
 
 
         </Typography>
+        {/*<Map google={this.props.google} center={{lat: 18.5204, lng: 73.8567}} height='300px' zoom={15} />*/}
 
     {/* { (2 === 2) && <a>yes</a>}*/}
       </Paper>
