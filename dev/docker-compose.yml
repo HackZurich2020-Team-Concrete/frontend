@@ -6,6 +6,7 @@ services:
       context: ../
       dockerfile: dev/Dockerfile
     volumes:
-      - ../:/app
+      - ../public:/app/public
+      - ../src:/app/src
     ports:
       - 3000:3000
