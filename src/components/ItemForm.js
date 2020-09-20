@@ -69,16 +69,24 @@ export default function ItemForm({item, user}) {
 
         <Paper className={classes.paper}>
 
-        <Typography gutterBottom variant="subtitle1">
+
         <div>
+        <Typography gutterBottom variant="h6">
+        Create new item
+
         <Button size="small">Save</Button>
 
         <Button size="small">Cancel</Button>
+        </Typography>
+        <Typography gutterBottom variant="subtitle1">
+        <br/>
+        How much material do you have?
+<br/>
         <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
             <OutlinedInput
               id="outlined-adornment-weight"
               onChange={handleChangeAmount}
-              endAdornment={<InputAdornment position="end">Kg</InputAdornment>}
+              endAdornment={<InputAdornment position="end">t (1000 kg)</InputAdornment>}
               aria-describedby="outlined-weight-helper-text"
               inputProps={{
                 'aria-label': 'weight',
@@ -87,8 +95,12 @@ export default function ItemForm({item, user}) {
             />
             <FormHelperText id="outlined-weight-helper-text">Weight</FormHelperText>
           </FormControl>
-
-
+          <br/>
+What is the quality of your material?
+<br/>
+<Typography variant="body2" color="textSecondary">
+  How easily can your material be crushed?
+</Typography>
               <FormControl className={classes.formControl}>
                 <InputLabel id="product_type">Type</InputLabel>
                 <Select
@@ -106,10 +118,14 @@ export default function ItemForm({item, user}) {
                 </Select>
                 <FormHelperText>Find info here.</FormHelperText>
               </FormControl>
-
-
+<br/>
+What is the granulometry of your material?
+<br/>
+<Typography variant="body2" color="textSecondary">
+  How big are the chunks?
+</Typography>
               <FormControl className={classes.formControl}>
-                <InputLabel id="chunkSize">Average Chunk Size</InputLabel>
+                <InputLabel id="chunkSize">Granulometry</InputLabel>
                 <Select
                   labelId="chunkSize-label"
                   id="chunkSize-helper"
@@ -119,16 +135,14 @@ export default function ItemForm({item, user}) {
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={"type1"}>0,01m-0,03m</MenuItem>
-                  <MenuItem value={"type2"}>0,03m-0,05m</MenuItem>
-                  <MenuItem value={"type3"}>0,05m-0,10m</MenuItem>
-                  <MenuItem value={"type3"}>0,10m-0,30m</MenuItem>
-                  <MenuItem value={"type3"}>0,30m-0,50m</MenuItem>
-                  <MenuItem value={"type3"}>0,50m and bigger</MenuItem>
-                </Select>
-                <FormHelperText>Find info here.</FormHelperText>
-              </FormControl>
+                  <MenuItem value={"fine"}>fine</MenuItem>
+                  <MenuItem value={"medium"}>medium</MenuItem>
+                  <MenuItem value={"thick"}>thick</MenuItem>
 
+                </Select>
+                <FormHelperText>Average Chunk Size</FormHelperText>
+              </FormControl>
+<br/>In which timeframe could your material be picked up? <br/>From:
               <DatePicker
                 selected={startDate}
                 onChange={date => setStartDate(date)}
@@ -136,6 +150,7 @@ export default function ItemForm({item, user}) {
                 startDate={startDate}
                 endDate={endDate}
               />
+               <br/>To:
               <DatePicker
                 selected={endDate}
                 onChange={date => setEndDate(date)}
@@ -144,6 +159,10 @@ export default function ItemForm({item, user}) {
                 endDate={endDate}
                 minDate={startDate}
               />
+              <br/>Where is your site located?<br/>
+              <Typography variant="body2" color="textSecondary">
+                Drag the marker on the map to the location of your site.
+              </Typography>
               <Map
     google={"AIzaSyDXQ41_WmK-K4oz3nzFNNM6KI_Jc_HIUTg"}
     center={{lat: 18.5204, lng: 73.8567}}
@@ -151,11 +170,11 @@ export default function ItemForm({item, user}) {
     zoom={15}
    />
 
-
+</Typography>
             </div>
 
 
-        </Typography>
+
         {/*<Map google={this.props.google} center={{lat: 18.5204, lng: 73.8567}} height='300px' zoom={15} />*/}
 
     {/* { (2 === 2) && <a>yes</a>}*/}
