@@ -31,6 +31,7 @@ const useStyles = makeStyles(
     },
     content: {
       display: 'flex',
+      width: '100%',
     },
     list: {
       minWidth: '350px',

@@ -63,6 +63,18 @@ const HomePage = () => {
     ...logisticsItems.filter(item => item.userId === user.id),
   ]
 
+  const testitem = {
+    "offerId":1,
+    "userId":29,
+    "locationN":48.80256715,
+    "locationE":9.22885895,
+    "startDate":"2020-09-04",
+    "endDate":"2020-09-30",
+    "amount":4.65,
+    "type":"normal",
+    "chunkSize":"enourmous"
+ }
+
   return (
     <Layout>
       {/* Side view */}
@@ -72,7 +84,7 @@ const HomePage = () => {
       </React.Fragment>
 
       {/* Main view */}
-      <MapView />
+      <MapView item={testitem} />
     </Layout>
   );
 };
